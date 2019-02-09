@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Matrix Rain</title>
+    <meta name="description" content="Spell a word using the Periodic Table">
+    <meta name="author" content="Sumit Chakravarty (https://github.com/sumitchakravarty)">
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <style>
+    html, body {
+        width:  100%;
+        height: 100%;
+        margin: 10px;
+        overflow: hidden;
+    }
+    </style>
+    <script src="PeriodicWord.js"></script>
+    <script>
+        function onload() {
+            let inputText = document.getElementById("inputWord");
+    
+            // hook up Enter to the button
+            inputText.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13)
+                    document.getElementById('submitBtn').click();
+            });
+
+            // set focus to the input text field
+            inputText.focus();
+        }
+    </script>
+</head>
+<body onload="onload()">
+    <div>
+        <div>Type a word and click TableIt! (or type Enter) for sciencey results...</div>
+        <br/>
+        <input type="text" id="inputWord">
+        <br/>
+        <br/>
+        <button id="submitBtn" type="button" onclick="fitWordFromBrowser()">TableIt!</button>
+    </div>
+    <div id="failureMessage" style="display:none">
+        That word is not "periodic".  Try again!
+    </div>
+    <div id="result">
+    </div>
+
+    <!-- NOTE: This is a template. Copy it in code, make it visible. Don't forget to change the id! -->
+    <div id="template" style="display:none; width: 50px; height: 50px; border: 1px solid cyan; position: relative; border-radius: 8px; background-color: paleturquoise; font-size: 20px; text-align: center; margin: 5px; padding: 5px;">
+        SYMBOLSYMBOL
+        <div style="align-content: center; height: 5px; font-size: 9px">
+            NAMENAME
+        </div>
+        <div style="position: absolute; right: 0; bottom: 0; align-content: center; width: 15px; height: 15px; font-size: 10px">
+            WEIGHTWEIGHT
+        </div>
+    </div>
+    <!-- end template -->
+
+</body>
+</html>
